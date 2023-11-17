@@ -1,4 +1,4 @@
-// Iteration 1: Declare variables required for this game
+//// Iteration 1: Declare variables required for this game
 let gamebody = document.getElementById("game-body")
 let lives  = document.getElementById('lives')
 let seconds = document.getElementById('timer').textContent
@@ -37,7 +37,7 @@ const img = [
 ]
 createZombie()
 function createZombie(){
-let randomImg = img[getRandomInt(0, img.length)]  //// get random img through array
+let randomImg = img[getRandomInt(0, img.length)]  // get random img through array
 console.log(randomImg)
 gamebody.innerHTML += `<img src='./assets/${randomImg}'
 class="zombie-image" id="zombie${zombieId}">`
@@ -66,6 +66,7 @@ function zombieDestruct(zombie){
     zombie.style.display = 'none'
     zombieId++
     createZombie()
+    lesser()
 }
 
 // Iteration 5: Creating timer  
@@ -86,6 +87,13 @@ let timer = setInterval(function(){
     }
 
 },1000)
+
+function lesser(){
+let decreaseBar = document.getElementById("max-lives")
+    decreaseBar.style.width = `${nlives*25}vw`
+    // nlives--
+}
+
 // Iteration 6: Write a code to start the game by calling the first zombie
 
 // Iteration 7: Write the helper function to get random integer
